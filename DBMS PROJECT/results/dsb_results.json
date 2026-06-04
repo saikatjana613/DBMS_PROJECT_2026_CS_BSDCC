@@ -1,0 +1,53 @@
+[
+  {
+    "query_name": "DSB1 - Store Sales by Category",
+    "original_sql": "SELECT i.i_category,\n               SUM(ss.ss_sales_price) AS total_sales\n        FROM dsb_store_sales ss, dsb_item i, dsb_date_dim d\n        WHERE ss.ss_item_sk = i.i_item_sk\n          AND ss.ss_sold_date_sk = d.d_date_sk\n          AND d.d_year = 2002\n        GROUP BY i.i_category",
+    "rewritten_sql": "SELECT i.i_category,\n               SUM(ss.ss_sales_price) AS total_sales\n        FROM dsb_store_sales ss, dsb_item i, dsb_date_dim d\n        WHERE ss.ss_item_sk = i.i_item_sk\n          AND ss.ss_sold_date_sk = d.d_date_sk\n          AND d.d_year = 2002\n        GROUP BY i.i_category",
+    "original_time_ms": 1.3483999646268785,
+    "rewritten_time_ms": 0.7119000074453652,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 1.8940861785710286,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.45427728613569324,
+    "error": null
+  },
+  {
+    "query_name": "DSB2 - Customer Demographics",
+    "original_sql": "SELECT cd.cd_education_status,\n               COUNT(*) AS customer_count\n        FROM dsb_customer c, dsb_customer_demographics cd\n        WHERE c.c_current_cdemo_sk = cd.cd_demo_sk\n        GROUP BY cd.cd_education_status",
+    "rewritten_sql": "SELECT cd.cd_education_status,\n               COUNT(*) AS customer_count\n        FROM dsb_customer c, dsb_customer_demographics cd\n        WHERE c.c_current_cdemo_sk = cd.cd_demo_sk\n        GROUP BY cd.cd_education_status",
+    "original_time_ms": 0.1610000035725534,
+    "rewritten_time_ms": 0.19270001212134957,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 0.8354955549829772,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.4697986577181208,
+    "error": null
+  },
+  {
+    "query_name": "DSB3 - Store Sales by Date",
+    "original_sql": "SELECT d.d_year, d.d_moy,\n               SUM(ss.ss_quantity) AS total_qty\n        FROM dsb_store_sales ss, dsb_date_dim d\n        WHERE ss.ss_sold_date_sk = d.d_date_sk\n        GROUP BY d.d_year, d.d_moy\n        ORDER BY d.d_year, d.d_moy",
+    "rewritten_sql": "SELECT d.d_year, d.d_moy,\n               SUM(ss.ss_quantity) AS total_qty\n        FROM dsb_store_sales ss, dsb_date_dim d\n        WHERE ss.ss_sold_date_sk = d.d_date_sk\n        GROUP BY d.d_year, d.d_moy\n        ORDER BY d.d_year, d.d_moy",
+    "original_time_ms": 2.0776999881491065,
+    "rewritten_time_ms": 2.0615000394172966,
+    "predicted_rules": [
+      "Aggregation Merge"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 1.0078583305467164,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.4626334519572954,
+    "error": null
+  }
+]
