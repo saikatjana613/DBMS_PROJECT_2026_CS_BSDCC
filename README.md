@@ -64,7 +64,6 @@ DBMS_PROJECT_2026_CS_BSDCC/
 │   │   ├── architecture.png
 │   │   ├── benchmark_comparison.png
 │   │   ├── dataset_distribution.png
-│   │   ├── demo/
 │   │   └── modules.png
 │
 ├── IMPLEMENTATION DETAILS/
@@ -72,10 +71,10 @@ DBMS_PROJECT_2026_CS_BSDCC/
 │   └── IMPLEMENTATION_SUMMARY.md
 │
 ├── IMPROVEMENT DETAILS/
-|    ├── IMPROVEMENTS_SUMMARY.md
+|    ├── IMPROVEMENTS_SUMMAR.md
 |    └── IMPROVEMENT_REPORT.md
 |
-├── BEFORE_AFTER COMPARISON.MD
+├── BEFORE_AFTER COMPARISON.md
 └── LLM_SYSTEM_VERIFICATION.md
 
 ```
