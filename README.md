@@ -60,7 +60,7 @@ DBMS_PROJECT_2026_CS_BSDCC/
     │   ├── tpc-h_comparison.png
     │   └── tpc-h_results.json
     │
-    ├── plots/
+    └── plots/
         ├── architecture.png
         ├── benchmark_comparison.png
         ├── dataset_distribution.png
