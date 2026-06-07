@@ -20,6 +20,15 @@
 
 This project focuses on Database Management System (DBMS) query optimization using SQL rewrite rules, Large Language Model (LLM) verification, and experimental evaluation. The system analyzes SQL queries, applies optimization techniques, validates transformations using LLM-based verification, and compares performance before and after optimization.
 
+## Abstract: Summary of Changes
+
+This project adapts the original **LLM-R2** research paper from a novel LLM-enhanced SQL query rewriting framework into a practical, end-to-end implementation. While the original work focuses on demonstration selection, contrastive representation learning, curriculum training, and LLM-guided rule recommendation for query optimization, the final report emphasizes system engineering and implementation.
+
+Key additions include automatic benchmark database generation (TPC-H, IMDB/JOB, and DSB), a complete Python-based query optimization pipeline, multi-sample LLM rule prediction, persistent rule caching, query equivalence verification, automated execution benchmarking, and visualization generation. The implementation also supports both real LLM inference and simulation modes for reproducible experimentation.
+
+In contrast to the research-oriented methodology of the original paper, the final report concentrates on building and evaluating a deployable prototype that combines LLM-assisted rule selection with deterministic rule-based query rewriting. The resulting system demonstrates how the concepts proposed in LLM-R2 can be transformed into a practical database optimization framework suitable for experimental evaluation and future extensions.
+
+
 ## 
 ## Repository Structure
 
