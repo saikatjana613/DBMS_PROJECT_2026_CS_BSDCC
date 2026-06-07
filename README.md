@@ -27,9 +27,6 @@ DBMS_PROJECT_2026_CS_BSDCC/
 │
 ├── DBMS Final Project Report.pdf
 ├── DBMS Provided Original Paper.pdf
-├── FINAL_STATUS_REPORT.md
-├── QUICK_START.md
-├── OLLAMA_GEMINI_SETUP_GUIDE.md
 │
 └── DBMS PROJECT/
     │
