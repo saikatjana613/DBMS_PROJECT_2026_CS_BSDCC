@@ -20,6 +20,7 @@
 
 This project focuses on Database Management System (DBMS) query optimization using SQL rewrite rules, Large Language Model (LLM) verification, and experimental evaluation. The system analyzes SQL queries, applies optimization techniques, validates transformations using LLM-based verification, and compares performance before and after optimization.
 
+## 
 ## Repository Structure
 
 ```text
