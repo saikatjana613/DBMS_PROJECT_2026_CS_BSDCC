@@ -1,0 +1,87 @@
+[
+  {
+    "query_name": "Q1 - Customer Orders",
+    "original_sql": "SELECT c.c_name, c.c_address, o.o_orderkey, o.o_totalprice\n        FROM tpch_customer c, tpch_orders o\n        WHERE c.c_custkey = o.o_custkey\n          AND c.c_mktsegment = 'AUTOMOBILE'\n          AND o.o_totalprice > 1000",
+    "rewritten_sql": "SELECT c.c_name, c.c_address, o.o_orderkey, o.o_totalprice\n        FROM tpch_customer c, tpch_orders o\n        WHERE c.c_custkey = o.o_custkey\n          AND c.c_mktsegment = 'AUTOMOBILE'\n          AND o.o_totalprice > 1000",
+    "original_time_ms": 0.9599000331945717,
+    "rewritten_time_ms": 0.7078999769873917,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 1.3559825743738771,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.5562913907284768,
+    "error": null
+  },
+  {
+    "query_name": "Q2 - Lineitem Aggregation",
+    "original_sql": "SELECT l.l_orderkey,\n               SUM(l.l_quantity)      AS total_qty,\n               SUM(l.l_extendedprice) AS total_price\n        FROM tpch_lineitem l\n        GROUP BY l.l_orderkey\n        ORDER BY total_price DESC",
+    "rewritten_sql": "SELECT l.l_orderkey,\n               SUM(l.l_quantity)      AS total_qty,\n               SUM(l.l_extendedprice) AS total_price\n        FROM tpch_lineitem l\n        GROUP BY l.l_orderkey\n        ORDER BY total_price DESC",
+    "original_time_ms": 4.141500045079738,
+    "rewritten_time_ms": 4.167500010225922,
+    "predicted_rules": [
+      "Aggregation Merge"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 0.9937612561290013,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.6746987951807228,
+    "error": null
+  },
+  {
+    "query_name": "Q3 - Three Table Join",
+    "original_sql": "SELECT c.c_name, o.o_orderdate, l.l_extendedprice\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l\n        WHERE c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND c.c_mktsegment = 'BUILDING'\n          AND o.o_orderdate > '1995-01-01'",
+    "rewritten_sql": "SELECT c.c_name, o.o_orderdate, l.l_extendedprice\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l\n        WHERE c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND c.c_mktsegment = 'BUILDING'\n          AND o.o_orderdate > '1995-01-01'",
+    "original_time_ms": 1.0673999786376953,
+    "rewritten_time_ms": 0.8846999844536185,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 1.2065106786419924,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.4783861671469741,
+    "error": null
+  },
+  {
+    "query_name": "Q4 - Regional Revenue",
+    "original_sql": "SELECT n.n_name,\n               SUM(l.l_extendedprice * (1 - l.l_discount)) AS revenue\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l, tpch_nation n\n        WHERE c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND c.c_nationkey = n.n_nationkey\n        GROUP BY n.n_name\n        ORDER BY revenue DESC",
+    "rewritten_sql": "SELECT n.n_name,\n               SUM(l.l_extendedprice * (1 - l.l_discount)) AS revenue\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l, tpch_nation n\n        WHERE c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND c.c_nationkey = n.n_nationkey\n        GROUP BY n.n_name\n        ORDER BY revenue DESC",
+    "original_time_ms": 3.223299980163574,
+    "rewritten_time_ms": 3.942999988794327,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 0.8174740018574488,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.5038167938931297,
+    "error": null
+  },
+  {
+    "query_name": "Q5 - Priority Order Revenue",
+    "original_sql": "SELECT l.l_orderkey,\n               SUM(l.l_extendedprice * (1 - l.l_discount)) AS revenue,\n               o.o_orderdate\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l\n        WHERE c.c_mktsegment = 'AUTOMOBILE'\n          AND c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND o.o_orderdate < '1995-03-07'\n        GROUP BY l.l_orderkey, o.o_orderdate",
+    "rewritten_sql": "SELECT l.l_orderkey,\n               SUM(l.l_extendedprice * (1 - l.l_discount)) AS revenue,\n               o.o_orderdate\n        FROM tpch_customer c, tpch_orders o, tpch_lineitem l\n        WHERE c.c_mktsegment = 'AUTOMOBILE'\n          AND c.c_custkey = o.o_custkey\n          AND l.l_orderkey = o.o_orderkey\n          AND o.o_orderdate < '1995-03-07'\n        GROUP BY l.l_orderkey, o.o_orderdate",
+    "original_time_ms": 0.7858999888412654,
+    "rewritten_time_ms": 1.1470000026747584,
+    "predicted_rules": [
+      "Filter Pushdown"
+    ],
+    "applied_rules": [],
+    "improvement_ratio": 0.685178715787775,
+    "equivalent": true,
+    "llm_latency_sec": 0.05,
+    "used_simulation": true,
+    "demo_similarity": 0.41217798594847777,
+    "error": null
+  }
+]
