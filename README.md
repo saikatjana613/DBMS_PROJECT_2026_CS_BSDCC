@@ -31,51 +31,42 @@ DBMS_PROJECT_2026_CS_BSDCC/
 ├── QUICK_START.md
 ├── OLLAMA_GEMINI_SETUP_GUIDE.md
 │
-├── DBMS PROJECT/
-│   │
-│   ├── schemas/
-│   │   └── all_schemas.sql
-│   │
-|   ├── config.py
-│   ├── db_setup.py
-│   ├── dbms_project.db
-│   ├── extract_queries.py
-│   ├── gemini_interface.py
-│   ├── main_pipeline.py
-│   ├── plot.py
-│   └── rewrite_rules.py
-│   │
-│   ├── results/
-│   │   ├── benchmark_summary.png
-│   │   ├── demo_similarity.png
-│   │   ├── dsb_comparison.png
-│   │   ├── dsb_results.json
-│   │   ├── general_performance.png
-│   │   ├── imdb_comparison.png
-│   │   ├── imdb_results.json
-│   │   ├── improvement_heatmap.png
-│   │   ├── llm_latency.png
-│   │   ├── rule_recommendation.png
-│   │   ├── speedup_per_query.png
-│   │   ├── tpc-h_comparison.png
-│   │   └── tpc-h_results.json
-│   │
-│   ├── plots/
-│   │   ├── architecture.png
-│   │   ├── benchmark_comparison.png
-│   │   ├── dataset_distribution.png
-│   │   └── modules.png
-│
-├── IMPLEMENTATION DETAILS/
-│   ├── IMPLEMENTATION_DETAILS.md
-│   └── IMPLEMENTATION_SUMMARY.md
-│
-├── IMPROVEMENT DETAILS/
-|    ├── IMPROVEMENTS_SUMMAR.md
-|    └── IMPROVEMENT_REPORT.md
-|
-├── BEFORE_AFTER COMPARISON.md
-└── LLM_SYSTEM_VERIFICATION.md
+└── DBMS PROJECT/
+    │
+    ├── schemas/
+    │   └── all_schemas.sql
+    │
+    ├── config.py
+    ├── db_setup.py
+    ├── dbms_project.db
+    ├── extract_queries.py
+    ├── gemini_interface.py
+    ├── main_pipeline.py
+    ├── plot.py
+    └── rewrite_rules.py
+    │
+    ├── results/
+    │   ├── benchmark_summary.png
+    │   ├── demo_similarity.png
+    │   ├── dsb_comparison.png
+    │   ├── dsb_results.json
+    │   ├── general_performance.png
+    │   ├── imdb_comparison.png
+    │   ├── imdb_results.json
+    │   ├── improvement_heatmap.png
+    │   ├── llm_latency.png
+    │   ├── rule_recommendation.png
+    │   ├── speedup_per_query.png
+    │   ├── tpc-h_comparison.png
+    │   └── tpc-h_results.json
+    │
+    ├── plots/
+        ├── architecture.png
+        ├── benchmark_comparison.png
+        ├── dataset_distribution.png
+        └── modules.png
+
+
 
 ```
 
